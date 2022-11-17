@@ -15,9 +15,23 @@ const postDwarf=async (req,res)=>{
         const newDwarf=await Dwarf.create(dwarf)
         res.send(newDwarf)
     }
-    catch{
+    catch(error){
+        res.send(error._message)
         res.sendStatus(500)
     }
 }
 
-module.exports={getDwarfs,postDwarf}
+const deleteDwarf= async (req,res)=> {
+    try {
+      const name=req.body.name;
+      await Dwarf.deleteOne({
+        name
+      });
+      res.send(`${name} has been deleted`)
+    } catch (error) {
+      console.log (error);
+      res.sendStatus(500);
+    }
+  }
+
+module.exports={getDwarfs,postDwarf, deleteDwarf}
