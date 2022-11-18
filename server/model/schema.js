@@ -2,7 +2,8 @@ const mongoose = require ('./model.index')
 
 const dwarfSchema= new mongoose.Schema(
     {
-        name: {type:String,required:true}
+        name: {type:String,required:true},
+        score:{type:Number,required:true}
     },
     {autocreate:true}
 );
