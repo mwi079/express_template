@@ -7,7 +7,8 @@
     "nodemon": "^2.0.15"
   },
   "scripts": {
-    "serve": "nodemon ./server/index.js"
+    "serve": "nodemon ./server/index.js",
+    "test":"jest --runInBand --detectOpenHandles --forceExit"
   },
   "devDependencies": {
     "supertest": "^6.3.1"

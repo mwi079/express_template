@@ -25,8 +25,9 @@ const postDwarf=async (req,res)=>{
         const newDwarf=await Dwarf.create(dwarf);
         res.send(newDwarf);
     } catch (error){
+        res.status(500)
         res.send(error._message);
-        res.sendStatus(500);
+       
     }
 }
 

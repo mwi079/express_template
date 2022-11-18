@@ -10,8 +10,8 @@ app.use(router)
 //     res.send({name:'Malcolm'})
 // })
 
-app.listen(port,()=>{
+const server=app.listen(port,()=>{
     console.log(`Port:${port}`)
 })
 
-export default app
+module.exports= server
