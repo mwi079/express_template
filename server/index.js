@@ -13,3 +13,5 @@ app.use(router)
 app.listen(port,()=>{
     console.log(`Port:${port}`)
 })
+
+export default app
