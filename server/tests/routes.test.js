@@ -24,10 +24,18 @@ describe("Routes",()=>{
         const response=await request
             .post("/addDwarf")
             .set("content-type", "application/json")
-            .send({name:'test'})
+            .send({name:'test',allow:true})
         expect(response.body.name).toBe('test');
         expect(response.body.score).toBe(0);
         dwarfId=response.body._id
+    })
+
+    it("should now allow you to add a dwarf if you are not authenticated",async()=>{
+        const response=await request
+            .post("/addDwarf")
+            .set("content-type", "application/json")
+            .send({name:'test',allow:false})
+        expect(response.status).toBe(401);
     })
 
     it("should allow you to get the dwarfs",async()=>{
@@ -40,7 +48,7 @@ describe("Routes",()=>{
         const deleteResponse=await request
             .delete("/deleteDwarf")
             .set("content-type", "application/json")
-            .send({name:'test',_id:dwarfId})
+            .send({name:'test',_id:dwarfId,allow:true})
         expect(deleteResponse.status).toBe(200);
         expect(deleteResponse.text.includes('test')).toBe(true)
 
