@@ -7,7 +7,7 @@ app.use(express.json())
 app.use(router)
 
 // app.get('/',(_,res)=>{
-//     res.send({name:'Malcolm'})
+//     res.send({name:'Hello Malcolm'})
 // })
 
 const server=app.listen(port,()=>{
